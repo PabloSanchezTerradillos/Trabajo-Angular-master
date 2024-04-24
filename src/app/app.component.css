@@ -1,0 +1,29 @@
+h1 {
+  font-size: 3.125rem;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.125rem;
+  margin: 0 auto;
+  font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+}
+
+main {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 700px;
+}

@@ -1,0 +1,43 @@
+<app-menu></app-menu>
+<router-outlet></router-outlet>
+
+<main class="main">
+  <div class="content">
+    <h1>Carreras Fernando Alonso</h1>
+
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <label for="circuito" style="display: block">Circuito</label>
+      <select name="selectCircuit" id="circuito" formControlName="circuito">
+        @for(item of circuits; track $index){
+        <option value="{{ item }}">{{ item }}</option>
+        }
+      </select>
+
+      <label for="select" style="display: block">Año</label>
+      <select name="select" id="select" formControlName="season">
+        @for(item of seasons; track $index){
+        <option value="{{ item }}">{{ item }}</option>
+        }
+      </select>
+
+      <button type="submit">Buscar</button>
+    </form>
+
+    @if(valorSeason && valorCircuit){  
+    @if(resultado){ 
+    @for(dato of resultado;
+    track $index){
+    <h2>
+      {{
+        "Circuito: " + dato.Circuit.circuitName + ", Temporada: " + dato.season
+      }}
+    </h2>
+    <p>{{ "Posición: " + dato.Results[0].position }}</p>
+    <p>{{ "Vuelta rápida: " + dato.Results[0].FastestLap.Time.time }}</p>
+    <p>{{ "Escudería: " + dato.Results[0].Constructor.name }}</p>
+    }
+    } }
+  </div>
+</main>
+
+<router-outlet />
